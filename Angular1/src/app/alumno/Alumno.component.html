@@ -1,0 +1,27 @@
+﻿<table>
+    <thead>
+        <tr>
+            <th [attr.colspan]='columnas'>Ciclista</th>
+        </tr>
+    </thead>
+    <tr *ngIf="visibles">
+        <td>Nombre</td>
+        <td>{{nombre}}</td>
+    </tr>
+    <tr *ngIf="visibles">
+        <td>Apellidos</td>
+        <td>{{apellidos}}</td>
+    </tr>
+    <tr *ngIf="visibles">
+        <td>Dirección</td>
+        <td>{{direccion}}</td>
+    </tr>
+    <tr *ngIf="visibles">
+        <td>Edad</td>
+        <td>{{edad}}</td>
+    </tr>
+</table>
+<br /> 
+<button (click) = "alternar2()">
+    {{visibles ? "Ocultar" : "Mostrar"}} Detalle
+</button>

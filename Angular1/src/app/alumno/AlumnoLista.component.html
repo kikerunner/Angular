@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<cuantos-alumnos [todos] ="getNumTodos()" 
+                 [hombres] ="getNumHombres()"
+                 [mujeres] ="getNumMujeres()"
+                 (globalElegido)="setSeleccion($event)">
+
+</cuantos-alumnos>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Fnac</th>
+                <th>Sexo</th>
+            </tr>
+        </thead>
+        <!---->
+        <tbody>
+            <ng-container *ngFor="let alumno of alumnos">
+                <tr  *ngIf="seleccion == 'Todos' || seleccion == alumno.sexo">
+                    <td>{{alumno.nombre | uppercase | alumnoTitulo:alumno.sexo}} {{alumno.apellidos}}</td>
+                    <td>{{alumno.direccion}}</td>
+                    <td>{{alumno.fnac | date: 'dd/MM/y'}}</td>
+                    <td>{{alumno.sexo}}</td>
+                </tr>
+            </ng-container>
+            <tr *ngIf="!alumnos || alumnos.length == 0">
+                <td colspan="4" align="center">No hay alumnos</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

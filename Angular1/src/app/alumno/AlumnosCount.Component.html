@@ -1,0 +1,8 @@
+﻿<span>Alumno : </span>
+<input name="opciones" type="radio" value="Todos" [(ngModel)]="opcionElegida" (change)="cuandoCambiemos()"/>
+<span>{{'Todos(' + todos + ')'}}</span>
+
+<input name="opciones" type="radio" value="hombre" [(ngModel)]="opcionElegida" (change)="cuandoCambiemos()"/>
+<span>{{'Hombres(' + hombres + ')'}}</span>
+<input name="opciones" type="radio" value="mujer" [(ngModel)]="opcionElegida" (change)="cuandoCambiemos()"/>
+<span>{{'Mujeres(' + mujeres + ')'}}</span>
