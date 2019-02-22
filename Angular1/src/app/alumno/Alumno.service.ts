@@ -41,4 +41,9 @@ export class AlumnoService {
             }
         ]
     }
+
+    getAlumnosPorNombre(nombre: string): Observable<Alumno> {
+        return this._http.get("http://localhost:50540/api/Alumnos/" + nombre)
+            .map((response: Response) => <Alumno>response.json());
+    }
 }

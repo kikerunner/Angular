@@ -25,7 +25,7 @@
         <tbody>
             <ng-container *ngFor="let alumno of alumnos">
                 <tr  *ngIf="seleccion == 'Todos' || seleccion == alumno.sexo">
-                    <td>{{alumno.nombre | uppercase | alumnoTitulo:alumno.sexo}} {{alumno.apellidos}}</td>
+                    <td><a [routerLink]="['/Alumno', alumno.nombre]">{{alumno.nombre | uppercase | alumnoTitulo:alumno.sexo}} {{alumno.apellidos}}</a></td>
                     <td>{{alumno.direccion}}</td>
                     <td>{{alumno.fnac | date: 'dd/MM/y'}}</td>
                     <td>{{alumno.sexo}}</td>

@@ -47,6 +47,10 @@ var AlumnoService = (function () {
             }
         ];
     };
+    AlumnoService.prototype.getAlumnosPorNombre = function (nombre) {
+        return this._http.get("http://localhost:50540/api/Alumnos/" + nombre)
+            .map(function (response) { return response.json(); });
+    };
     return AlumnoService;
 }());
 AlumnoService = __decorate([

@@ -1,4 +1,7 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
+import { Alumno } from './IAlumno';
+import { ActivatedRoute} from '@angular/router';
+import { AlumnoService } from './Alumno.service';
 
 @Component({
     selector: 'el-alumno',
@@ -7,15 +10,14 @@
     //styleUrls: [`app/alumno/Alumno.component.css`],
 })
 
-export class AlumnoComponent {
-    columnas: number = 2;
-    nombre: string = 'perico';
-    apellidos: string = 'Delgado';
-    direccion: string = 'Segovia City';
-    edad: number = 60;
-    visibles: boolean = false;
+export class AlumnoComponent implements OnInit{
+    alumno: Alumno;
 
-    alternar2(): void {
-        this.visibles = !this.visibles
+    constructor(private alumnoService: AlumnoService, private activatedRoute: ActivatedRoute) { }
+
+    ngOnInit() {
+        let nomAlumno: string = this.activatedRoute.snapshot.params['nombre'];
+        this.alumnoService.getAlumnosPorNombre(nomAlumno).subscribe(
+            (alumnoDatos) => this.alumno = alumnoDatos);
     }
 }

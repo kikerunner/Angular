@@ -12,9 +12,11 @@ import { AlumnoTituloPipe } from './alumno/Alumno.Titulo.pipe';
 import { AlumnosCountComponent } from './alumno/AlumnosCount.Component';
 import { ProfesorComponent } from './Profesores/Profesor.component';
 import { PaginaNoEncontradaComponent } from './Otros/PaginaNoEncontrada.component';
+import { AlumnoService } from './alumno/Alumno.service';
 
 const appRutas: Routes = [
     { path: 'Alumno', component: AlumnoListaComponent },
+    { path: 'Alumno/:nombre', component: AlumnoComponent },
     { path: 'Profesores', component: ProfesorComponent },
     { path: '', redirectTo: '/Profesores', pathMatch: 'full' },
     { path: '**', component: PaginaNoEncontradaComponent },
@@ -23,6 +25,7 @@ const appRutas: Routes = [
 @NgModule({
     imports: [BrowserModule, HttpModule, FormsModule, RouterModule.forRoot(appRutas)],
     declarations: [AppComponent, AlumnoComponent, AlumnoListaComponent, AlumnoTituloPipe, AlumnosCountComponent, ProfesorComponent, PaginaNoEncontradaComponent],
-    bootstrap:    [ AppComponent ]
+    bootstrap: [AppComponent],
+    providers: [AlumnoService]
 })
 export class AppModule { }

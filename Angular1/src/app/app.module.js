@@ -17,8 +17,10 @@ var Alumno_Titulo_pipe_1 = require("./alumno/Alumno.Titulo.pipe");
 var AlumnosCount_Component_1 = require("./alumno/AlumnosCount.Component");
 var Profesor_component_1 = require("./Profesores/Profesor.component");
 var PaginaNoEncontrada_component_1 = require("./Otros/PaginaNoEncontrada.component");
+var Alumno_service_1 = require("./alumno/Alumno.service");
 var appRutas = [
     { path: 'Alumno', component: AlumnoLista_Component_1.AlumnoListaComponent },
+    { path: 'Alumno/:nombre', component: AlumnoComponent_1.AlumnoComponent },
     { path: 'Profesores', component: Profesor_component_1.ProfesorComponent },
     { path: '', redirectTo: '/Profesores', pathMatch: 'full' },
     { path: '**', component: PaginaNoEncontrada_component_1.PaginaNoEncontradaComponent },
@@ -32,7 +34,8 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, router_1.RouterModule.forRoot(appRutas)],
         declarations: [app_component_1.AppComponent, AlumnoComponent_1.AlumnoComponent, AlumnoLista_Component_1.AlumnoListaComponent, Alumno_Titulo_pipe_1.AlumnoTituloPipe, AlumnosCount_Component_1.AlumnosCountComponent, Profesor_component_1.ProfesorComponent, PaginaNoEncontrada_component_1.PaginaNoEncontradaComponent],
-        bootstrap: [app_component_1.AppComponent]
+        bootstrap: [app_component_1.AppComponent],
+        providers: [Alumno_service_1.AlumnoService]
     })
 ], AppModule);
 exports.AppModule = AppModule;
